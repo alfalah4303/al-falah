@@ -1,47 +1,41 @@
-
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Pacifico } from "next/font/google";
+import { Inter, Pacifico } from "next/font/google";
 import "./globals.css";
 
+// Load supported Google Fonts
 const pacifico = Pacifico({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-pacifico',
-})
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+  weight: "400",
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-pacifico",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const inter = Geist({
+  display: "swap",
   variable: "--font-inter",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Gouri Group | Granite & Marble Exporters Since 1985",
-  description: "Al Falah Marble Supplier & Exporter – Gouri Group. Premium granite, marble, and sandstone. Exporting globally since 1985 from Kishangarh, Rajasthan.",
-  keywords: "granite exporters, marble suppliers, Kishangarh marble, natural stones India, sandstone dealer, Gouri Group, Al Falah Marble Exporters, alfalahexports.com",
+  description:
+    "Al Falah Marble Supplier & Exporter – Gouri Group. Premium granite, marble, and sandstone. Exporting globally since 1985 from Kishangarh, Rajasthan.",
+  keywords:
+    "granite exporters, marble suppliers, Kishangarh marble, natural stones India, sandstone dealer, Gouri Group, Al Falah Marble Exporters, alfalahexports.com",
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
   openGraph: {
     title: "Gouri Group | Granite & Marble Exporters Since 1985",
-    description: "Premium granite, marble, and sandstone from India. Trusted exporters since 1985.",
+    description:
+      "Premium granite, marble, and sandstone from India. Trusted exporters since 1985.",
     images: [
       {
         url: "https://alfalahexports.com/preview.jpg",
         width: 1200,
         height: 630,
         alt: "Gouri Group - Premium Granite & Marble Exporters",
-      }
+      },
     ],
     url: "https://alfalahexports.com",
     siteName: "Gouri Group",
@@ -50,7 +44,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Gouri Group | Granite & Marble Exporters Since 1985",
-    description: "Premium granite, marble, and sandstone from India. Trusted exporters since 1985.",
+    description:
+      "Premium granite, marble, and sandstone from India. Trusted exporters since 1985.",
     images: ["https://alfalahexports.com/preview.jpg"],
   },
 };
@@ -62,14 +57,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body
-        className={`${pacifico.variable} ${inter.variable}`}
-      >
+      <body className={`${pacifico.variable} ${inter.variable}`}>
         {children}
+        {/* EmailJS script */}
         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `emailjs.init("Twl1RhZCacvrwcklO");`
-        }}></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `emailjs.init("Twl1RhZCacvrwcklO");`,
+          }}
+        ></script>
       </body>
     </html>
   );
